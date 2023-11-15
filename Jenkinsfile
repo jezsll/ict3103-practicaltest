@@ -24,6 +24,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Stop Node.js Application') {
+            steps {
+                script {
+                    // Stop the Node.js application
+                    sh 'npm stop'
+                }
+            }
+        }
     }
 }
 
