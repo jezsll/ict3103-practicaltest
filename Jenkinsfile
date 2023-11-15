@@ -21,6 +21,7 @@ pipeline {
                 script {
                     // Run the Node.js application
                     sh 'npm start'
+                    sleep 10
                 }
             }
         }
@@ -29,7 +30,7 @@ pipeline {
             steps {
                 script {
                     // Stop the Node.js application
-                    sh 'npm stop'
+                    sh 'npm stop || true'
                 }
             }
         }
