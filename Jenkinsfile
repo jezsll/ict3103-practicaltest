@@ -1,16 +1,29 @@
 pipeline {
     agent {
         docker {
-            image 'node:14' // You can adjust the Node.js version as needed
-            args '-p 3001:3001' // Expose the necessary port
+            image 'node:14'
+            args '-p 3001:3001'
         }
     }
-    
+
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                script {
+                    // Install npm dependencies
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Run Node.js Application') {
+            steps {
+                script {
+                    // Run the Node.js application
+                    sh 'npm start'
+                }
             }
         }
     }
 }
+
